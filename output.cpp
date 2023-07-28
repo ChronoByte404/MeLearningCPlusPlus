@@ -1,32 +1,47 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
-
     char ch = 'h';
     cout << ch;
     cout << "This is C++ Programming";
     cout << "\nHello, I am Jarvis.";
 
     string keyword = "Hello,";
-
     string edit = "Hello, how are you?";
-
     cout << edit;
 
-    string add = "Bye,";
+    cout << "Your answer: ";
 
-    string newtext = edit.replace(0, keyword.size(), add);
+    string userInput;
+    getline(cin, userInput);
 
-    cout << "\n" << newtext;
+    cout << "You entered: " << userInput << endl;
 
-    if (newtext.size() > edit.size()) {
-      cout << "Edited text is bigger than original.";
+    if (userInput == "Good") {
+      cout << "Good, glad to hear." << endl;
+    }
+    else if (userInput == "Bad") {
+      cout << "Oh no, that's not good." << endl;
+    }
+    else {
+      cout << "What?" << endl;
     }
 
-    else {
-      cout << "It does not, lol.";
+    string add = "Bye,";
+    string oldedit = edit;
+    string newtext = edit.replace(0, keyword.size(), add);
+    cout << "\n" << newtext;
+
+    float num1 = newtext.size();
+    float num2 = oldedit.size();
+
+    if (num1 > num2) {
+        cout << "Edited text is bigger than original.";
+    } else if (num1 < num2) {
+        cout << "Edited text is smaller than original.";
+    } else {
+        cout << "Both text variables are the same size.";
     }
 
     return 0;
