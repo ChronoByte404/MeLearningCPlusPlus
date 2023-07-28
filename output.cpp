@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib> // Include this for std::system
 using namespace std;
 
 int main() {
@@ -18,15 +19,17 @@ int main() {
 
     cout << "You entered: " << userInput << endl;
 
+    string response;
+
     if (userInput == "Good") {
-      cout << "Good, glad to hear." << endl;
+        response = "Good, glad to hear.\n";
+    } else if (userInput == "Bad") {
+        response = "Oh no, that's not good.\n";
+    } else {
+        response = "What?\n";
     }
-    else if (userInput == "Bad") {
-      cout << "Oh no, that's not good." << endl;
-    }
-    else {
-      cout << "What?" << endl;
-    }
+
+    cout << response;
 
     string add = "Bye,";
     string oldedit = edit;
@@ -43,6 +46,9 @@ int main() {
     } else {
         cout << "Both text variables are the same size.";
     }
+
+    // Convert the response to a C-style string and use std::system
+    int result = std::system(("say '" + response + "'").c_str());
 
     return 0;
 }
