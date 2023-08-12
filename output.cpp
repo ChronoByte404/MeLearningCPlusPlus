@@ -25,9 +25,9 @@ int main() {
 
     string response;
 
-    if (userInput == "good") {
+    if (userInput.find("good") != string::npos) {
         response = "Good, glad to hear.\n";
-    } else if (userInput == "bad") {
+    } else if (userInput.find("bad") != string::npos) {
         response = "Oh no, that's not good.\n";
     } else {
         response = "What?\n";
