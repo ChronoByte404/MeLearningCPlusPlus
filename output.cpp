@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib> // Include this for std::system
+#include <boost/algorithm/string.hpp>
 using namespace std;
 
 int main() {
@@ -14,16 +15,19 @@ int main() {
 
     cout << "Your answer: ";
 
-    string userInput;
-    getline(cin, userInput);
+    string initialuserInput;
+    getline(cin, initialuserInput);
+
+    std::string userInput = initialuserInput;
+    boost::to_lower(userInput);
 
     cout << "You entered: " << userInput << endl;
 
     string response;
 
-    if (userInput == "Good") {
+    if (userInput == "good") {
         response = "Good, glad to hear.\n";
-    } else if (userInput == "Bad") {
+    } else if (userInput == "bad") {
         response = "Oh no, that's not good.\n";
     } else {
         response = "What?\n";
