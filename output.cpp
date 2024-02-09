@@ -6,14 +6,14 @@ using namespace std;
 int main() {
     char ch = 'h';
     cout << ch;
-    cout << "This is C++ Programming";
+    cout << "\nThis is C++ Programming";
     cout << "\nHello, I am Jarvis.";
 
     string keyword = "Hello,";
     string edit = "Hello, how are you?";
     cout << edit;
 
-    cout << "Your answer: ";
+    cout << "\nYour answer: ";
 
     string initialuserInput;
     getline(cin, initialuserInput);
@@ -52,7 +52,7 @@ int main() {
     }
 
     // Convert the response to a C-style string and use std::system
-    int result = std::system(("say '" + response + "'").c_str());
+    int result = std::system(("echo '" + response + "'|espeak").c_str());
 
     return 0;
 }
